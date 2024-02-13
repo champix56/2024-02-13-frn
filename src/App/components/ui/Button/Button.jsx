@@ -6,6 +6,9 @@ function Button(props) {
   console.log(props);
   return (
     <TouchableOpacity
+      onPress={evt => {
+        props.onButtonPress();
+      }}
       style={{
         ...styles.Button,
         backgroundColor: props.bgColor,
@@ -18,6 +21,7 @@ function Button(props) {
 Button.propTypes = {
   text: PropTypes.string.isRequired,
   bgColor: PropTypes.oneOf(['red', 'tomato', 'skyblue', 'yellow']),
+  onButtonPress: PropTypes.func.isRequired,
 };
 
 Button.defaultProps = {
