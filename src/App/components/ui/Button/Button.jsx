@@ -1,5 +1,5 @@
 import React from 'react';
-import {Text, TouchableHighlight, TouchableOpacity, View} from 'react-native';
+import {Text, TouchableOpacity} from 'react-native';
 import styles from './Button.styles';
 import PropTypes from 'prop-types';
 function Button(props) {
@@ -14,8 +14,13 @@ function Button(props) {
     </TouchableOpacity>
   );
 }
-export default Button;
+
 Button.propTypes = {
   text: PropTypes.string.isRequired,
-  bgColor: PropTypes.oneOf(['tomato', 'skyblue', 'yellow']).isRequired,
+  bgColor: PropTypes.oneOf(['red', 'tomato', 'skyblue', 'yellow']),
 };
+
+Button.defaultProps = {
+  bgColor: 'skyblue',
+};
+export default Button;
