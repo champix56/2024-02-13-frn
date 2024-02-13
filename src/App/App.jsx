@@ -8,8 +8,8 @@ function App() {
     <View>
       <Text style={styles.demat}>DEMAT Breizh</Text>
       <Button text="dfghjkl" bgColor="red" />
-      <Button text="fddsdl" type="cancel" />
-      <Button text="hello" />
+      <Button text="fddsdl" bgColor="tomato" />
+      <Button text="hello" bgColor="skyblue" />
       <Button text="de lu" />
     </View>
   );
