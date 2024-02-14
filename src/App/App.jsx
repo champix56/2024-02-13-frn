@@ -1,24 +1,41 @@
-import React from 'react';
-import {Text, ToastAndroid, Vibration, View} from 'react-native';
+import React, {useEffect, useState} from 'react';
+import {Text, View} from 'react-native';
 import styles from './App.styles';
 import Button from './components/ui/Button/Button';
 
 function App() {
+  const [counter, setCounter] = useState(-1);
+  useEffect(() => {
+    /*componentDidMount*/
+    setCounter(0);
+    return () => {
+      //componentWillUnmout
+      console.log('unmountApp');
+    };
+  }, []);
+  useEffect(() => {
+    console.log(counter);
+  }, [counter]);
+
   return (
     <View>
-      <Text style={styles.demat}>DEMAT Breizh</Text>
+      <Text style={styles.demat}>counter value :{counter}</Text>
       <Button
-        text="dfghjkl"
+        text="-1"
         bgColor="red"
         onButtonPress={evt => {
-          ToastAndroid.show('Coucou', ToastAndroid.LONG);
-          Vibration.vibrate(1000);
-          console.log(evt);
+          setCounter(counter - 1);
+          console.log(counter, evt);
         }}
       />
-      <Button text="fddsdl" bgColor="tomato" />
-      <Button text="hello" bgColor="skyblue" />
-      <Button text="de lu" />
+
+      <Button
+        text="+1"
+        onButtonPress={e => {
+          setCounter(counter + 1);
+          console.log(counter);
+        }}
+      />
     </View>
   );
 }
