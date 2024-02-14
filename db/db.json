@@ -1,0 +1,52 @@
+{
+  "users": [
+    {"id": 0, "name": "DESORBAIX", "firstName": "Alexandre"},
+    {"id": 1, "name": "Toketchup", "firstName": "Thomas"}
+  ],
+  "documents": [
+    {
+      "id": 0,
+      "userId": 0,
+      "titre": "CNI",
+      "type": "PDF",
+      "blob": "BASE64CONTENT"
+    },
+    {
+      "id": 1,
+      "userId": 1,
+      "titre": "CNI",
+      "type": "PDF",
+      "blob": "BASE64CONTENT"
+    },
+    {
+      "id": 2,
+      "userId": 0,
+      "titre": "PASSEPORT",
+      "type": "IMG",
+      "blob": "BASE64CONTENT"
+    },
+    {
+      "id": 3,
+      "userId": 1,
+      "titre": "PASSEPORT",
+      "type": "PDF",
+      "blob": "BASE64CONTENT"
+    },
+    {
+      "id": 4,
+      "userId": 0,
+      "titre": "Admission",
+      "date": "2024-01-01",
+      "type": "pdf",
+      "blob": "BASE64CONTENT"
+    },
+    {
+      "id": 5,
+      "userId": 0,
+      "titre": "Arret travail",
+      "date": "2024-01-02",
+      "type": "pdf",
+      "blob": "BASE64CONTENT"
+    }
+  ]
+}
