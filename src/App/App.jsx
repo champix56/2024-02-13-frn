@@ -47,7 +47,7 @@ function App() {
         }}
       />
       <ListDoc>
-        <DocInList type="PDF" titre="Nouveau" />
+        <DocInList type="NOICON" titre="Nouveau" />
         {documents
           .filter(e => {
             return (

@@ -8,12 +8,12 @@ import styles from './DocInList.styles';
  */
 interface IDocInListProps {
   titre: string;
-  type: 'PDF' | 'IMG' | 'PPT';
+  type: 'PDF' | 'IMG' | 'PPT' | 'NOICON';
   date?: string;
 }
 
 const DocInList: React.FC<IDocInListProps> = props => {
-  let icon = require('../../../../../assets/img/icon_img.png');
+  let icon = undefined;
   switch (props.type) {
     case 'PDF':
       icon = require('../../../../../assets/img/icon_pdf.png');
@@ -21,13 +21,18 @@ const DocInList: React.FC<IDocInListProps> = props => {
     case 'PPT':
       icon = require('../../../../../assets/img/icon_ppt.png');
       break;
+    default:
+      icon = require('../../../../../assets/img/icon_img.png');
+      break;
   }
   return (
     <TouchableOpacity style={styles.DocInList} testID="DocInList">
       <View style={styles.container}>
-        <View style={styles.imageContainer}>
-          <Image source={icon} style={styles.icon} />
-        </View>
+        {props.type !== 'NOICON' && (
+          <View style={styles.imageContainer}>
+            <Image source={icon} style={styles.icon} />
+          </View>
+        )}
         <View style={styles.textContainer}>
           <Text style={styles.titre}>{props.titre}</Text>
           {undefined !== props.date && (
