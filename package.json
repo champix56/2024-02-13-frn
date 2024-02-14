@@ -8,6 +8,8 @@
     "lint": "eslint .",
     "start": "react-native start",
     "test": "jest",
+    "json":"npm run adbJsonReverse|json-server --host 0.0.0.0 -p 5617 db/db.json",
+    "adbJsonReverse":"adb reverse tcp:5617 tcp:5617",
     "gen_ui": "npx generate-react-cli c --type=uifunc",
     "gen_layout": "npx generate-react-cli c --type=layoutfunc"
   },
