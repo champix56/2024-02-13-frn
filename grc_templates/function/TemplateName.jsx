@@ -17,7 +17,7 @@ const TemplateName = props => {
     };
   }, []);
   return (
-    <View style={styles.TemplateName}>
+    <View style={styles.TemplateName} testID="TemplateName">
       <Text>templateName</Text>
     </View>
   );
