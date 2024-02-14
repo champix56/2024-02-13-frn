@@ -25,6 +25,20 @@
         "lazy":"grc_templates/readme.md"
         
       }
+    },
+    "layoutfunc":{
+      "path": "src/App/components/layout",
+      "withStyle":true,
+      "withTest":true,
+      "withLazy":true,
+      "withStory":false,
+      "customTemplates":{
+        "component":"grc_templates/layout/TemplateName.tsx",
+        "style":"grc_templates/TemplateName.styles.jsx",
+        "test":"grc_templates/layout/TemplateName.test.tsx",
+        "lazy":"grc_templates/readme.md"
+        
+      }
     }
   }
 }

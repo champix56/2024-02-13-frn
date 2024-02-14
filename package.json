@@ -8,7 +8,8 @@
     "lint": "eslint .",
     "start": "react-native start",
     "test": "jest",
-    "gen_ui": "npx generate-react-cli c --type=uifunc"
+    "gen_ui": "npx generate-react-cli c --type=uifunc",
+    "gen_layout": "npx generate-react-cli c --type=layoutfunc"
   },
   "dependencies": {
     "react": "18.2.0",
