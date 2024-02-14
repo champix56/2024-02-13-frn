@@ -47,6 +47,13 @@
       "date": "2024-01-02",
       "type": "pdf",
       "blob": "BASE64CONTENT"
+    },
+    {
+      "id": 6,
+      "userId": 0,
+      "titre": "CNI 2",
+      "type": "PDF",
+      "blob": "BASE64CONTENT"
     }
   ]
 }
