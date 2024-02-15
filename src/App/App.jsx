@@ -1,10 +1,11 @@
 import React, {useEffect, useState} from 'react';
-import {Text, TextInput, View} from 'react-native';
+import {ScrollView, Text, TextInput, View} from 'react-native';
 import styles from './App.styles';
 import Button from './components/ui/Button/Button';
 import DocInList from './components/ui/DocInList/DocInList';
 import ListDoc from './components/layout/ListDoc/ListDoc';
 import {REST_RESSOURCES, REST_URL} from './config/config';
+import UserViewer from './components/ui/UserViewer/UserViewer';
 
 function App() {
   const [user, setUser] = useState({});
@@ -39,7 +40,8 @@ function App() {
       <Text>
         {user.name} {user.firstName} / {documents.length} / {filterValue}
       </Text>
-      <TextInput
+      <UserViewer user={user} documents={documents} />
+      {/* <TextInput
         placeholder="recherche"
         value={filterValue}
         onChangeText={newValue => {
@@ -48,7 +50,7 @@ function App() {
       />
       <ListDoc>
         <DocInList type="NOICON" titre="Nouveau" />
-        {documents
+        {documents 
           .filter(e => {
             return (
               e.type.toLowerCase().includes(filterValue.toLowerCase()) ||
@@ -58,7 +60,8 @@ function App() {
           .map((e, i) => {
             return <DocInList key={'dil' + e.id} {...e} />;
           })}
-      </ListDoc>
+      </ListDoc>*/}
+      <Text>Coucou</Text>
     </View>
   );
 }

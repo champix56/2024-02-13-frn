@@ -11,6 +11,7 @@ import styles from './UserViewer.styles';
 import PropTypes from 'prop-types';
 import {DUMMY_USER} from '../../../interfaces/user';
 import Button from '../Button/Button';
+import FiltrableDocumentsList from '../FiltrableDocumentsList/FiltrableDocumentsList';
 const initialState = DUMMY_USER;
 /**
  * Composant UserViewer
@@ -18,37 +19,31 @@ const initialState = DUMMY_USER;
  * @returns {React.ReactNode} structure d'affichage components de UserViewer
  */
 const UserViewer = props => {
-  const [user, setUser] = useState(initialState);
-  useEffect(() => {
-    if (undefined !== props.user) {
-      setUser(props.user);
-    } else {
-      setUser(DUMMY_USER);
-    }
-  }, [props.user]);
+ 
   return (
     <View style={styles.UserViewer} testID="UserViewer">
       <View style={styles.header}>
         <Text style={styles.headerText}>
-          {user.id !== undefined ? `Edition user : ${user.id}` : 'Nouveau user'}
+          {props.user.id !== undefined ? `Edition user : ${props.user.id}` : 'Nouveau user'}
         </Text>
       </View>
       <View style={styles.content}>
         <View style={styles.leftContent}>
-          <Text style={styles.textinputs}>{user.name}</Text>
-          <Text style={styles.textinputs}>{user.firstName}</Text>
+          <Text style={styles.textinputs}>{props.user.name}</Text>
+          <Text style={styles.textinputs}>{props.user.firstName}</Text>
         </View>
         <View style={styles.rightContent}>
           <Image
             source={
-              user.photo !== undefined
-                ? {uri: user.photo}
+              props.user.photo !== undefined
+                ? {uri: props.user.photo}
                 : require('../../../../../assets/img/nophoto.png')
             }
             style={styles.photo}
           />
         </View>
       </View>
+      <FiltrableDocumentsList documents={props.documents} />
     </View>
   );
 };
@@ -59,5 +54,6 @@ UserViewer.propTypes = {
     firstName: PropTypes.string.isRequired,
     photo: PropTypes.string,
   }),
+  documents: PropTypes.array.isRequired,
 };
 export default UserViewer;
