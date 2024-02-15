@@ -5,7 +5,8 @@ const styles = StyleSheet.create({
   header: {alignItems: 'center'},
   headerText: {fontWeight: '900', fontSize: 32},
   content: {flexDirection: 'row'},
-  leftContent: {flexGrow: 1},
+  leftContent: {flexGrow: 1, justifyContent: 'space-around'},
+  textinputs: {borderBottomWidth: 1, borderColor: 'grey', width: '80%'},
   rightContent: {padding: 10},
   photo: {
     width: 120,

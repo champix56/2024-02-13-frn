@@ -34,8 +34,22 @@ const UserEditor = props => {
       </View>
       <View style={styles.content}>
         <View style={styles.leftContent}>
-          <TextInput onChangeText={t => {}} value="" placeholder="Nom" />
-          <TextInput onChangeText={t => {}} value="" placeholder="Prénom" />
+          <TextInput
+            style={styles.textinputs}
+            onChangeText={t => {
+              setUser({...user, name: t});
+            }}
+            value={user.name}
+            placeholder="Nom"
+          />
+          <TextInput
+            style={styles.textinputs}
+            onChangeText={t => {
+              setUser({...user, firstName: t});
+            }}
+            value={user.firstName}
+            placeholder="Prénom"
+          />
         </View>
         <TouchableOpacity style={styles.rightContent}>
           <Image
