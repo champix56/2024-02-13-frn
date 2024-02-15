@@ -1,18 +1,17 @@
 import {Image, Text, TouchableOpacity, View} from 'react-native';
 import React from 'react';
 import styles from './DocInList.styles';
+import {IDocument} from '../../../interfaces/document';
 /**
  * Composant DocInList
  * @param {*} props props du composant DocInList
  * @returns {React.ReactNode} structure d'affichage components de DocInList
  */
 interface IDocInListProps {
-  titre: string;
-  type: 'PDF' | 'IMG' | 'PPT' | 'NOICON';
-  date?: string;
+  style: {};
 }
 
-const DocInList: React.FC<IDocInListProps> = props => {
+const DocInList: React.FC<IDocInListProps & IDocument> = props => {
   let icon = undefined;
   switch (props.type) {
     case 'PDF':
