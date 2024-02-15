@@ -8,6 +8,7 @@ function Button(props) {
     <TouchableOpacity
       onPress={props.onButtonPress}
       style={{
+        ...props.style,
         ...styles.Button,
         backgroundColor: props.bgColor,
       }}>
