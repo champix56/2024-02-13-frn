@@ -5,7 +5,10 @@ import Button from './components/ui/Button/Button';
 import DocInList from './components/ui/DocInList/DocInList';
 import ListDoc from './components/layout/ListDoc/ListDoc';
 import {REST_RESSOURCES, REST_URL} from './config/config';
-
+import {store} from './store/store';
+import UserEditor from './components/ui/UserEditor/UserEditor';
+import UserView from './components/ui/UserView/UserView';
+import {update} from './store/userSlice';
 function App() {
   const [user, setUser] = useState({});
   const [documents, setDocuments] = useState([]);
@@ -39,7 +42,15 @@ function App() {
       <Text>
         {user.name} {user.firstName} / {documents.length} / {filterValue}
       </Text>
-      <TextInput
+      {/* <UserEditor
+        user={user}
+        onCancel={() => {}}
+        onSave={updatedUser => {
+          setUser(updatedUser);
+        }}
+      /> */}
+      <UserView user={user} documents={documents} />
+      {/*<TextInput
         placeholder="recherche"
         value={filterValue}
         onChangeText={newValue => {
@@ -48,7 +59,7 @@ function App() {
       />
       <ListDoc>
         <DocInList type="NOICON" titre="Nouveau" />
-        {documents
+        {/*documents
           .filter(e => {
             return (
               e.type.toLowerCase().includes(filterValue.toLowerCase()) ||
@@ -59,6 +70,7 @@ function App() {
             return <DocInList key={'dil' + e.id} {...e} />;
           })}
       </ListDoc>
+      */}
     </View>
   );
 }

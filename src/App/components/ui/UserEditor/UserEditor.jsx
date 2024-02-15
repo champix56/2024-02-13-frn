@@ -23,6 +23,8 @@ const UserEditor = props => {
   useEffect(() => {
     if (undefined !== props.user) {
       setUser(props.user);
+    } else {
+      setUser(DUMMY_USER);
     }
   }, [props.user]);
   return (
@@ -67,14 +69,17 @@ const UserEditor = props => {
           style={styles.button}
           text="cancel"
           bgColor="tomato"
-          onButtonPress={e => {}}
+          onButtonPress={e => {
+            props.onCancel();
+          }}
         />
         <Button
           style={styles.button}
           text="save"
           bgColor="skyblue"
           onButtonPress={e => {
-            Vibration.Vibrate(200);
+            Vibration.vibrate(200);
+            props.onSave(user);
           }}
         />
       </View>
