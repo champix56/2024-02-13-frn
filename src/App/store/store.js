@@ -1,33 +1,24 @@
-// interface IState {
-//   users: Array<any>;
-//   timestamp: string;
-// }
-const initialState = {
-  users: [{id: -1}],
-  timestamp: new Date().toISOString(),
-};
+import {combineReducers, configureStore} from '@reduxjs/toolkit';
+import currentReducer, {clearCurrent, fetchUser, updateCurrentUser} from './currentUser';
+import userDocumentReducer from './userDocuments';
 
-const reducer = (state = initialState, action) => {
-  switch (action.type) {
-    case 'ADD_USER':
-      return {...state, users: [...state.users, action.payload]};
-    case 'ADD_USERS':
-      return {...state, users: [...state.users, ...action.payload]};
-
-    default:
-      return state;
-  }
-};
-
-const addUser = user => {
-  return {type: 'ADD_USER', payload: user};
-};
-
-let state = reducer(undefined, {type: '@@INIT'});
-console.log(state);
-state = reducer(state,addUser({id: 0}));
-console.log(state);
-state = reducer(state, {type: 'ADD_USERS', payload: [{id: 1}, {id: 2}]});
-console.log(state);
-state = reducer(state, {type: 'JE_VEUX8DE8LA8CHOUCROUTE', payload: 100});
-console.log(state);
+export const store = configureStore({
+  reducer: combineReducers({
+    user: currentReducer,
+    documents: userDocumentReducer
+  }),
+  devTools: true,
+});
+store.subscribe(() => {
+  console.log('store updated', store.getState());
+});
+store.dispatch(fetchUser(0));
+// store.dispatch(
+//   updateCurrentUser({
+//     id: 1,
+//     firstName: 'Alexandre',
+//     name: 'DESORBAIX',
+//     photo: null,
+//   }),
+// );
+// store.dispatch(clearCurrent());

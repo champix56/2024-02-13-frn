@@ -11,7 +11,8 @@ import React, {useEffect, useState} from 'react';
 import styles from './UserEditor.styles';
 import PropTypes from 'prop-types';
 import {DUMMY_USER} from '../../../interfaces/user';
-import Button from '../Button/Button';
+import Button from '../../ui/Button/Button';
+import {useDispatch, useSelector} from 'react-redux';
 const initialState = DUMMY_USER;
 /**
  * Composant UserEditor
